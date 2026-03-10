@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
-import glob from 'glob'
+import { globSync } from 'glob'
 import { generateUpdates, UPDATES_SOURCE_DIR, DETAIL_TEMPLATE_PATH } from './scripts/generate-updates.mjs'
 
 // Generate updates on build start
@@ -12,7 +12,7 @@ try {
 
 // Collect all HTML entry points
 const inputFiles = {}
-glob.sync('**/*.html', {
+globSync('**/*.html', {
     ignore: ['dist/**', 'node_modules/**', '**/tests/**', '**/test/**', '**/fixtures/**', 'updates/detail-template.html']
 }).forEach(file => {
     inputFiles[file] = path.resolve(process.cwd(), file)
