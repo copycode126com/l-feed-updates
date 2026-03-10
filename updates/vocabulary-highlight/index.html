@@ -6,11 +6,11 @@
     <title>我来写一个中文更新 | L-feed Updates</title>
     <meta name="description" content="这是一个测试.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.lexifeed.top/updates/vocabulary-highlight">
+    <link rel="canonical" href="http://localhost:5173/updates/vocabulary-highlight">
 
     <meta property="og:title" content="我来写一个中文更新 | L-feed Updates">
     <meta property="og:description" content="这是一个测试.">
-    <meta property="og:url" content="https://www.lexifeed.top/updates/vocabulary-highlight">
+    <meta property="og:url" content="http://localhost:5173/updates/vocabulary-highlight">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="L-feed">
     <meta property="og:image" content="https://www.lexifeed.top/assets/images/lexifeed.webp">
@@ -28,10 +28,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../updates.css">
+    <script type="module" src="../i18n.js"></script>
 </head>
 <body class="updates-page detail">
     <div class="updates-gradient"></div>
     <div class="updates-noise"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button type="button" class="lang-switcher-btn" data-lang-switcher aria-label="Switch language">
+            English
+        </button>
+    </div>
 
     <header class="updates-hero">
         <div class="hero-content">
@@ -44,7 +52,7 @@
                 <span>1 min read</span>
             </div>
             <div class="hero-actions">
-                <a class="ghost-link" href="/updates">← Back to all updates</a>
+                <a class="ghost-link" href="/updates/" data-i18n="back.to.updates">← Back to all updates</a>
             </div>
         </div>
     </header>
@@ -64,22 +72,22 @@
 
         <section class="share-card">
             <div>
-                <p class="share-label">Spread the word</p>
-                <p class="share-desc">Share this update with your community.</p>
+                <p class="share-label" data-i18n="share.label">Spread the word</p>
+                <p class="share-desc" data-i18n="share.desc">Share this update with your community.</p>
             </div>
             <div class="share-actions">
                 <button type="button" class="share-btn" data-share="copy">
-                    <span>Copy link</span>
+                    <span data-i18n="copy.link">Copy link</span>
                 </button>
                 <button type="button" class="share-btn" data-share="x">
-                    <span>Share to X</span>
+                    <span data-i18n="share.to.x">Share to X</span>
                 </button>
             </div>
         </section>
     </main>
 
     <script>
-        window.__UPDATE_ENTRY__ = {"title":"我来写一个中文更新","date":"2026-02-28","summary":"这是一个测试.","slug":"vocabulary-highlight","file":"2026-02-28-vocabulary-highlight.md","formattedDate":"Feb 28, 2026","readingMinutes":1,"canonicalUrl":"https://www.lexifeed.top/updates/vocabulary-highlight"};
+        window.__UPDATE_ENTRY__ = {"title":"我来写一个中文更新","date":"2026-02-28","summary":"这是一个测试.","slug":"vocabulary-highlight","file":"2026-02-28-vocabulary-highlight.md","formattedDate":"Feb 28, 2026","readingMinutes":1,"canonicalUrl":"http://localhost:5173/updates/vocabulary-highlight"};
     </script>
     <script type="module" src="../detail.js"></script>
 </body>

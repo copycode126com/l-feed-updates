@@ -1,3 +1,5 @@
+import { t, initLanguageSwitcher } from './i18n.js';
+
 const grid = document.querySelector('[data-updates-grid]');
 const loadingState = document.querySelector('[data-updates-loading]');
 const loadMoreBtn = document.querySelector('[data-load-more]');
@@ -34,10 +36,15 @@ function renderBatch() {
         node.querySelector('h2').textContent = entry.title;
         node.querySelector('.update-summary').textContent = trimText(entry.summary || '');
         const pill = node.querySelector('[data-pill]');
-        pill.textContent = `${entry.readingMinutes || 1} min read`;
+        pill.textContent = `${entry.readingMinutes || 1} ${t('min.read')}`;
         const link = node.querySelector('.update-link');
         link.href = `/updates/${entry.slug}/`;
         link.setAttribute('aria-label', `Read update ${entry.title}`);
+        // Update i18n for the link text
+        const linkText = node.querySelector('.update-link');
+        if (linkText) {
+            linkText.textContent = t('read.update');
+        }
         grid.appendChild(node);
     });
 
@@ -56,7 +63,7 @@ async function loadUpdates() {
         const data = await response.json();
         entries = Array.isArray(data) ? data : [];
         if (entries.length === 0) {
-            loadingState.innerHTML = '<p>No updates yet. Create your first Markdown file to get started.</p>';
+            loadingState.innerHTML = `<p>${t('no.updates')}</p>`;
             return;
         }
         loadingState.hidden = true;
@@ -64,10 +71,14 @@ async function loadUpdates() {
         renderBatch();
     } catch (error) {
         console.error(error);
-        loadingState.innerHTML = '<p>Unable to load updates. Please try again.</p>';
+        loadingState.innerHTML = `<p>Unable to load updates. Please try again.</p>`;
     }
 }
 
 loadMoreBtn?.addEventListener('click', renderBatch);
 
-loadUpdates();
+// Wait for i18n to be ready, then load updates
+document.addEventListener('DOMContentLoaded', () => {
+    initLanguageSwitcher();
+    loadUpdates();
+});

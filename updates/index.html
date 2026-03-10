@@ -27,39 +27,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./updates.css">
+    <script type="module" src="./i18n.js"></script>
 </head>
 <body class="updates-page">
     <div class="updates-gradient"></div>
     <div class="updates-noise"></div>
 
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button type="button" class="lang-switcher-btn" data-lang-switcher aria-label="Switch language">
+            English
+        </button>
+    </div>
+
     <header class="updates-hero">
         <div class="hero-content">
-            <p class="hero-eyebrow">Changelog · Product Journal</p>
-            <h1>Updates</h1>
-            <p class="hero-summary">Everything we shipped to help you fall in love with English reading again.</p>
+            <p class="hero-eyebrow" data-i18n="hero.eyebrow">Changelog · Product Journal</p>
+            <h1 data-i18n="hero.title">Updates</h1>
+            <p class="hero-summary" data-i18n="hero.summary">Everything we shipped to help you fall in love with English reading again.</p>
             <div class="hero-actions">
-                <a class="ghost-link" href="/">← Back to L-feed</a>
+                <a class="ghost-link" href="https://www.lexifeed.top/" data-i18n="back.to.lfeed">← Back to L-feed</a>
                 <span class="hero-pill">Markdown powered · SEO ready</span>
             </div>
         </div>
         <div class="hero-card">
-            <p>Publish in minutes:</p>
+            <p data-i18n="hero.publish">Publish in minutes:</p>
             <ol>
-                <li>Create <code>updates/YYYY-MM-DD-slug.md</code></li>
-                <li>Write title, date, summary</li>
-                <li>Commit &amp; deploy</li>
+                <li data-i18n="hero.step1">Create <code>updates/YYYY-MM-DD-slug.md</code></li>
+                <li data-i18n="hero.step2">Write title, date, summary</li>
+                <li data-i18n="hero.step3">Commit &amp; deploy</li>
             </ol>
-            <p class="hero-card-foot">The site does the rest.</p>
+            <p class="hero-card-foot" data-i18n="hero.step4">The site does the rest.</p>
         </div>
     </header>
 
     <main class="updates-feed" aria-live="polite" data-updates-feed>
         <div class="updates-loading" data-updates-loading>
             <span class="spinner" aria-hidden="true"></span>
-            <p>Loading updates…</p>
+            <p data-i18n="loading">Loading updates…</p>
         </div>
         <div class="updates-grid" data-updates-grid hidden></div>
-        <button type="button" class="load-more" data-load-more hidden>Show older updates</button>
+        <button type="button" class="load-more" data-load-more hidden data-i18n="show.older">Show older updates</button>
     </main>
 
     <template id="update-card-template">
@@ -70,26 +78,26 @@
             <div class="update-meta">
                 <span class="pill" data-pill></span>
                 <span class="dot" aria-hidden="true"></span>
-                <a class="update-link">Read update →</a>
+                <a class="update-link" data-i18n="read.update">Read update →</a>
             </div>
         </article>
     </template>
 
     <section class="seo-copy">
-        <h3>Why publish updates?</h3>
-        <p>L-feed builds in public. Every release, improvement, and experiment lands here so learners can follow the journey.</p>
+        <h3 data-i18n="seo.title">Why publish updates?</h3>
+        <p data-i18n="seo.desc">L-feed builds in public. Every release, improvement, and experiment lands here so learners can follow the journey.</p>
         <div class="seo-grid">
             <div>
-                <h4>SEO friendly</h4>
-                <p>Each update is crawlable with canonical URLs, metadata, and clean HTML generated from Markdown.</p>
+                <h4 data-i18n="seo.seo.title">SEO friendly</h4>
+                <p data-i18n="seo.seo.desc">Each update is crawlable with canonical URLs, metadata, and clean HTML generated from Markdown.</p>
             </div>
             <div>
-                <h4>Shareable</h4>
-                <p>One click to copy a link or post to social media. Updates double as launch notes.</p>
+                <h4 data-i18n="seo.shareable.title">Shareable</h4>
+                <p data-i18n="seo.shareable.desc">One click to copy a link or post to social media. Updates double as launch notes.</p>
             </div>
             <div>
-                <h4>Low maintenance</h4>
-                <p>No database—just Markdown files and an automated build step.</p>
+                <h4 data-i18n="seo.maintenance.title">Low maintenance</h4>
+                <p data-i18n="seo.maintenance.desc">No database—just Markdown files and an automated build step.</p>
             </div>
         </div>
     </section>

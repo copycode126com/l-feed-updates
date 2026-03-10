@@ -1,5 +1,5 @@
 {
-  "name": "l-feed-update",
+  "name": "l-feed-updates",
   "version": "1.0.0",
   "description": "A markdown-powered changelog/update site generator",
   "type": "module",

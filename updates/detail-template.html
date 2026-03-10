@@ -28,10 +28,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../updates.css">
+    <script type="module" src="../i18n.js"></script>
 </head>
 <body class="updates-page detail">
     <div class="updates-gradient"></div>
     <div class="updates-noise"></div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button type="button" class="lang-switcher-btn" data-lang-switcher aria-label="Switch language">
+            English
+        </button>
+    </div>
 
     <header class="updates-hero">
         <div class="hero-content">
@@ -44,7 +52,7 @@
                 <span>{{READING_TIME}}</span>
             </div>
             <div class="hero-actions">
-                <a class="ghost-link" href="/updates">← Back to all updates</a>
+                <a class="ghost-link" href="/updates/" data-i18n="back.to.updates">← Back to all updates</a>
             </div>
         </div>
     </header>
@@ -58,15 +66,15 @@
 
         <section class="share-card">
             <div>
-                <p class="share-label">Spread the word</p>
-                <p class="share-desc">Share this update with your community.</p>
+                <p class="share-label" data-i18n="share.label">Spread the word</p>
+                <p class="share-desc" data-i18n="share.desc">Share this update with your community.</p>
             </div>
             <div class="share-actions">
                 <button type="button" class="share-btn" data-share="copy">
-                    <span>Copy link</span>
+                    <span data-i18n="copy.link">Copy link</span>
                 </button>
                 <button type="button" class="share-btn" data-share="x">
-                    <span>Share to X</span>
+                    <span data-i18n="share.to.x">Share to X</span>
                 </button>
             </div>
         </section>

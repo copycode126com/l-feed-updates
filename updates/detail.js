@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { t, initLanguageSwitcher } from './i18n.js';
 
 const entry = window.__UPDATE_ENTRY__ || {};
 const contentEl = document.getElementById('update-content');
@@ -33,8 +34,12 @@ async function refreshContent() {
 async function copyToClipboard(text, button) {
     try {
         await navigator.clipboard.writeText(text);
-        button.textContent = 'Copied!';
-        setTimeout(() => (button.textContent = 'Copy link'), 2000);
+        const span = button.querySelector('span');
+        if (span) {
+            const originalText = t('copy.link');
+            span.textContent = t('copied');
+            setTimeout(() => (span.textContent = originalText), 2000);
+        }
     } catch (error) {
         console.warn('Clipboard unavailable', error);
     }
@@ -73,4 +78,6 @@ shareButtons.forEach((button) => {
     button.addEventListener('click', () => handleShare(button.dataset.share, button));
 });
 
+// Initialize language switcher and refresh content
+initLanguageSwitcher();
 refreshContent();
