@@ -33,6 +33,10 @@ const translations = {
         'copied': '已复制！',
         'share.to.weibo': '分享到微博',
         'share.to.x': '分享到 X',
+        // GitHub 链接
+        'github.repo': '在 GitHub 上 Star',
+        'github.issues': '提交需求',
+        'github.discussions': '参与讨论',
     },
     en: {
         // 列表页 - List Page
@@ -67,6 +71,10 @@ const translations = {
         'copied': 'Copied!',
         'share.to.weibo': 'Share to Weibo',
         'share.to.x': 'Share to X',
+        // GitHub 链接
+        'github.repo': 'Star on GitHub',
+        'github.issues': 'Request Feature',
+        'github.discussions': 'Join Discussion',
     }
 };
 
