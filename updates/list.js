@@ -1,8 +1,11 @@
 import { t, initLanguageSwitcher } from './i18n.js';
 
+// Get base path for GitHub Pages or default to root
+const getBasePath = () => window.__BASE__ || '/';
+
 const grid = document.querySelector('[data-updates-grid]');
 const loadingState = document.querySelector('[data-updates-loading]');
-const loadMoreBtn = document.querySelector('[data-load-more]');
+const loadMoreBtn = document.querySelector('[data-load-more']);
 const template = document.getElementById('update-card-template');
 
 const PER_PAGE = 6;
@@ -38,7 +41,7 @@ function renderBatch() {
         const pill = node.querySelector('[data-pill]');
         pill.textContent = `${entry.readingMinutes || 1} ${t('min.read')}`;
         const link = node.querySelector('.update-link');
-        link.href = `/updates/${entry.slug}/`;
+        link.href = `${getBasePath()}updates/${entry.slug}/`;
         link.setAttribute('aria-label', `Read update ${entry.title}`);
         // Update i18n for the link text
         const linkText = node.querySelector('.update-link');
@@ -58,7 +61,7 @@ function renderBatch() {
 
 async function loadUpdates() {
     try {
-        const response = await fetch(`/updates/index.json?_=${Date.now()}`);
+        const response = await fetch(`${getBasePath()}updates/index.json?_=${Date.now()}`);
         if (!response.ok) throw new Error('Failed to load updates');
         const data = await response.json();
         entries = Array.isArray(data) ? data : [];

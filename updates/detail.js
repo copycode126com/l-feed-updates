@@ -1,6 +1,9 @@
 import { marked } from 'marked';
 import { t, initLanguageSwitcher } from './i18n.js';
 
+// Get base path for GitHub Pages or default to root
+const getBasePath = () => window.__BASE__ || '/';
+
 const entry = window.__UPDATE_ENTRY__ || {};
 const contentEl = document.getElementById('update-content');
 const shareButtons = document.querySelectorAll('[data-share]');
@@ -21,7 +24,7 @@ function stripFrontMatter(markdown = '') {
 async function refreshContent() {
     if (!entry.file || !contentEl) return;
     try {
-        const response = await fetch(`/updates/${entry.file}?_=${Date.now()}`);
+        const response = await fetch(`${getBasePath()}updates/${entry.file}?_=${Date.now()}`);
         if (!response.ok) throw new Error('Unable to load Markdown file');
         const markdown = await response.text();
         const html = marked.parse(stripFrontMatter(markdown));
