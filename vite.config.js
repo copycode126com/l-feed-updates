@@ -61,7 +61,7 @@ function updatesWatcherPlugin() {
 }
 
 export default defineConfig({
-    base: '/l-feed-updates/',
+    base: '/', // 使用自定义域名时设置为根路径
     build: {
         rollupOptions: {
             input: inputFiles

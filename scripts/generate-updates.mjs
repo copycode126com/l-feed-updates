@@ -15,7 +15,7 @@ const SLUG_PATTERN = /^[a-z0-9-]+$/;
 const canonicalByEnv = {
   development: 'http://localhost:5173',
   test: 'https://test.lexifeed.top',
-  production: 'https://www.lexifeed.top'
+  production: 'https://updates.lexifeed.top' // 改为你的自定义域名
 };
 
 const env = process.env.NODE_ENV || 'development';
@@ -183,7 +183,8 @@ function buildDetailPages(entries) {
     const detailDir = path.join(UPDATES_SOURCE_DIR, entry.slug);
     ensureDir(detailDir);
     const canonicalUrl = `${canonicalBase.replace(/\/$/, '')}/updates/${entry.slug}`;
-    const basePath = env === 'production' ? '/l-feed-updates/' : '/';
+    // Use custom domain? Set to '/' if using custom domain, '/l-feed-updates/' for GitHub Pages default
+    const basePath = '/'; // Using custom domain
     const entryPayload = JSON.stringify({
       title: entry.title,
       date: entry.date,
