@@ -5,7 +5,7 @@ const getBasePath = () => window.__BASE__ || '/';
 
 const grid = document.querySelector('[data-updates-grid]');
 const loadingState = document.querySelector('[data-updates-loading]');
-const loadMoreBtn = document.querySelector('[data-load-more']);
+const loadMoreBtn = document.querySelector('[data-load-more]');
 const template = document.getElementById('update-card-template');
 
 const PER_PAGE = 6;
