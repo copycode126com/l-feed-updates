@@ -183,6 +183,7 @@ function buildDetailPages(entries) {
     const detailDir = path.join(UPDATES_SOURCE_DIR, entry.slug);
     ensureDir(detailDir);
     const canonicalUrl = `${canonicalBase.replace(/\/$/, '')}/updates/${entry.slug}`;
+    const basePath = env === 'production' ? '/l-feed-updates/' : '/';
     const entryPayload = JSON.stringify({
       title: entry.title,
       date: entry.date,
@@ -201,7 +202,8 @@ function buildDetailPages(entries) {
       .replace(/{{READING_TIME}}/g, `${entry.readingMinutes} min read`)
       .replace(/{{CANONICAL_URL}}/g, canonicalUrl)
       .replace(/{{CONTENT_HTML}}/, entry.contentHtml)
-      .replace(/{{ENTRY_JSON}}/, entryPayload);
+      .replace(/{{ENTRY_JSON}}/, entryPayload)
+      .replace(/{{BASE}}/g, basePath);
     fs.writeFileSync(path.join(detailDir, 'index.html'), filled, 'utf8');
   }
 }
