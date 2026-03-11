@@ -61,6 +61,7 @@ function updatesWatcherPlugin() {
 }
 
 export default defineConfig({
+    base: '/l-feed-updates/',
     build: {
         rollupOptions: {
             input: inputFiles
