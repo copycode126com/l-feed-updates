@@ -59,6 +59,14 @@ function handleShare(action, button) {
         return;
     }
 
+    if (action === 'weibo') {
+        const shareUrl = new URL('https://service.weibo.com/share/share.php');
+        shareUrl.searchParams.set('url', url);
+        shareUrl.searchParams.set('title', `${entry.title} - ${entry.summary || ''}`);
+        window.open(shareUrl.toString(), '_blank', 'noopener');
+        return;
+    }
+
     if (action === 'x') {
         const shareUrl = new URL('https://x.com/intent/tweet');
         shareUrl.searchParams.set('text', composeShareMessage());

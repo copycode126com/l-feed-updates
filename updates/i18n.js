@@ -31,6 +31,7 @@ const translations = {
         'share.desc': '将此更新分享给你的社区。',
         'copy.link': '复制链接',
         'copied': '已复制！',
+        'share.to.weibo': '分享到微博',
         'share.to.x': '分享到 X',
     },
     en: {
@@ -64,6 +65,7 @@ const translations = {
         'share.desc': 'Share this update with your community.',
         'copy.link': 'Copy link',
         'copied': 'Copied!',
+        'share.to.weibo': 'Share to Weibo',
         'share.to.x': 'Share to X',
     }
 };
